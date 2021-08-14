@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Kurs</title>
+        <link rel="canonical" href="https://www.mataf.net/id/currency/converter-IDR-USD" />
+        <link rel="stylesheet" href="https://www.mataf.net/assets/widget/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://www.mataf.net/assets/widget/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="https://www.mataf.net/assets/widget/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://www.mataf.net/assets/widget/select2/css/select2.css" />
+        <link rel="stylesheet" href="https://www.mataf.net/assets/widget/flag_country/sprite-fc.css" />
+        <script nonce="2159ca8baa9b">
+            var onload_functions = onload_functions || [];
+            var apiBaseUrl = "https://www.mataf.io/";
+            var matafBlue = "1C79B3";
+            var matafRed = "AD4055";
+            var matafGreen = "2E832B";
+            var matafYellow = "EFA024";
+        </script>
+        <style nonce="2159ca8baa9b">
+            body {
+                /*overflow: hidden;*/
+            }
+            .margin-top-5 {
+                margin-top: 5px;
+            }
+            .margin-top-10 {
+                margin-top: 10px;
+            }
+            .margin-top-20 {
+                margin-top: 20px;
+            }
+            .margin-top-25 {
+                margin-top: 25px;
+            }
+            .very-big {
+                font-size: 4em;
+            }
+            .not-to-big {
+                font-size: 2em;
+            }
+            .font-grey {
+                color: #999;
+            }
+            .nav-tabs {
+                margin-top: 2px;
+            }
+            a {
+                text-decoration: underline;
+                color: inherit;
+            }
+            .nav > li > a {
+                padding: 2px 5px;
+                font-size: 11px;
+                font-weight: bold;
+            }
+            .nav-tabs > li > a {
+                border-color: #eee #eee #ddd;
+            }
+            .full-screen {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                z-index: 0;
+            }
+            .signature {
+                margin-top: 5px;
+                font-size: 11px;
+                color: #999;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body onload='return my_curr_date();'>
+        <div class="container-fluid">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#conv" aria-controls="conv" role="tab" data-toggle="tab">Konverter</a></li>
+                <li role="presentation"><a href="#table" aria-controls="table" role="tab" data-toggle="tab">Kurs tukar</a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="conv">
+                    <div role="form">
+                        <div class="form-body">
+                            <div class="form-group">
+                                <div class="margin-top-10"><label>Masukkan Jumlah</label> <input type="number" id="m1" class="form-control" placeholder="" value="1" onchange="convert(0)" /></div>
+                                <div class="margin-top-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon" id="convCode1"><i class="sprite-fc sprite-fc-ID"></i></span>
+                                        <select class="form-control select2me" id="convFrom">
+                                            <option value="IDR" selected data-sprite="sprite-fc sprite-fc-ID"> IDR - Indonesia Rupiah </option>
+                                            <option value="USD" data-sprite="sprite-fc sprite-fc-US"> USD - Dolar Amerika Serikat </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="margin-top-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon" id="convCode2"><i class="sprite-fc sprite-fc-US"></i></span>
+                                        <select class="form-control select2me" id="convTo">
+                                            <option value="IDR" data-sprite="sprite-fc sprite-fc-ID"> IDR - Indonesia Rupiah </option>
+                                            <option value="USD" selected data-sprite="sprite-fc sprite-fc-US"> USD - Dolar Amerika Serikat </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 id="c1" class="text-center margin-top-20"></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="table">
+                    <div role="form" class="form-inline margin-top-5">
+                        <div class="input-group">
+                            <span class="input-group-addon">USD</span> <input type="number" id="amount" class="form-control" value="1" />
+							<span class="input-group-addon"><i class="sprite-fc sprite-fc-US"></i></span>
+                        </div>
+                    </div>
+                    <table class="table table-condensed table-hover margin-top-5">
+                        <tbody>
+
+                            <tr>
+                                <td><i class="sprite-fc sprite-fc-ID"></i></td>
+                                <td class="text-center">IDR</td>
+                                <td class="text-right"><span class="liveConv2" data-conv="15350"> 15.350 </span></td>
+                            </tr>
+                            <tr>
+                                <td><i class="sprite-fc sprite-fc-US"></i></td>
+                                <td class="text-center">USD</td>
+                                <td class="text-right"><span class="liveConv2" data-conv="1"> 1.00 </span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <script nonce="2159ca8baa9b">
+                var conv = {
+                    code: "IDR",
+                    date: "2021-08-11",
+                    data: {
+                        IDR: 15350.00000,
+                        USD: 1.00000,
+                    },
+                };
+                onload_functions.push(function () {
+                    convert(0);
+                    $("#amount").on("input", function () {
+                        updateWidget();
+                    });
+                    $("#m1").on("input", function () {
+                        convert(0);
+                    });
+                    $("#convTo").on("change", function () {
+                        convert(0);
+                    });
+                    $("#convFrom").on("change", function () {
+                        convert(0);
+                    });
+                });
+                function convert(way) {
+                    var m1 = $("#m1").val();
+                    var convFrom = $("#convFrom").val();
+                    var convTo = $("#convTo").val();
+                    var c1 = conv["data"][convFrom];
+                    var c2 = conv["data"][convTo];
+                    var sprite1 = $("#convFrom option:selected").data("sprite");
+                    var sprite2 = $("#convTo option:selected").data("sprite");
+                    $("#convCode1").html('<i class="sprite-fc sprite-fc-' + sprite1 + '"></i>');
+                    $("#convCode2").html('<i class="sprite-fc sprite-fc-' + sprite2 + '"></i>');
+                    var url = "/id/currency/converter-" + convFrom + "-" + convTo;
+                    if (way == 0) {
+                        var m2 = (m1 * c2) / c1;
+                        var p1 = formatResult(m1) + " " + convFrom + " = " + formatResult(m2) + " " + convTo;
+                        var m11 = (m1 * c1) / c2;
+                        var p2 = formatResult(m1) + " " + convTo + " = " + formatResult(m11) + " " + convFrom;
+                        $("#c1").html(p1);
+                        $("#c2").html(p2);
+                    } else {
+                        $("#m1").val(formatResult((m2 * c1) / c2));
+                    }
+                }
+                function formatResult(result) {
+                    var decimals = 2;
+                    if (result < 0.1) {
+                        decimals = 4;
+                    }
+                    return Number(Math.round(result + "e" + decimals) + "e-" + decimals);
+                }
+                function updateWidget() {
+                    var amount = $("#amount").val();
+                    $(".liveConv2").each(function () {
+                        liveconv = $(this).data("conv");
+                        $(this).html(number_format(amount * liveconv, 2, ".", "&nbsp;"));
+                    });
+                }
+            </script>
+
+<p class="signature" style="float:left">Update Terakhir: <span id='kurstoday'>
+<script>
+arrbulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+date = new Date();
+millisecond = date.getMilliseconds();
+detik = date.getSeconds();
+menit = date.getMinutes();
+jam = date.getHours();
+hari = date.getDay();
+tanggal = date.getDate();
+bulan = date.getMonth();
+tahun = date.getFullYear();
+document.write(tanggal+" "+arrbulan[bulan]+" "+tahun);
+</script></span></p>
+            <p class="signature" style="float:right">Konverter mata uang ini disediakan oleh <a href="javascript:void(0)" rel="nofollow">Bank Mandiri Persero</a></p>
+        </div>
+        <script src="https://www.mataf.net/assets/scripts/inline/ajax.js"></script>
+        <script src="https://www.mataf.net/assets/scripts/inline/mataf.js"></script>
+        <script src="https://www.mataf.net/assets/widget/jquery.min.js"></script>
+        <script src="https://www.mataf.net/assets/widget/bootstrap.min.js"></script>
+        <script src="https://www.mataf.net/assets/widget/number_format.js"></script>
+        <script src="https://www.mataf.net/assets/widget/select2/js/select2.min.js"></script>
+        <script src="https://www.mataf.net/assets/widget/select2/js/select2.min.js"></script>
+        <script nonce="2159ca8baa9b">
+            $(document).ready(function () {
+                for (var i1 in onload_functions) {
+                    /* to add a function: onload_functions.push(function() { the_fonction(); }); */ /* console.time('onload_'+i); */ onload_functions[i1](); /*console.timeEnd('onload_'+i);*/
+                } /*$('.select2me').select2();*/
+            });
+        </script>
+
+    </body>
+</html>
