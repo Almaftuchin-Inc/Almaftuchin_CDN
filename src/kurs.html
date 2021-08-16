@@ -79,7 +79,7 @@
         <div class="container-fluid">
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a href="#conv" aria-controls="conv" role="tab" data-toggle="tab">Konverter</a></li>
-                <li role="presentation"><a href="#table" aria-controls="table" role="tab" data-toggle="tab">Kurs tukar</a></li>
+                <li role="presentation"><a href="#table" aria-controls="table" role="tab" data-toggle="tab">Tabel Nilai Tukar</a></li>
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="conv">
@@ -124,13 +124,43 @@
 
                             <tr>
                                 <td><i class="sprite-fc sprite-fc-ID"></i></td>
-                                <td class="text-center">IDR</td>
-                                <td class="text-right"><span class="liveConv2" data-conv="15350"> 15.350 </span></td>
+                                <td class="text-left">IDR (Indonesian Rupiah)</td>
+                                <td class="text-left"><span class="liveConv2" data-conv="15350"> 15.350 </span></td>
                             </tr>
                             <tr>
                                 <td><i class="sprite-fc sprite-fc-US"></i></td>
-                                <td class="text-center">USD</td>
-                                <td class="text-right"><span class="liveConv2" data-conv="1"> 1.00 </span></td>
+                                <td class="text-left">USD (United States Dollar)</td>
+                                <td class="text-left"><span class="liveConv2" data-conv="1"> 1.00 </span></td>
+                            </tr>
+							<tr>
+                                <td><i class="sprite-fc sprite-fc-AU"></i></td>
+                                <td class="text-left">AUD (Australian Dollar)</td>
+                                <td class="text-left"><span class="liveConv2" data-conv="1.46"> 1.46 </span></td>
+                            </tr>
+							<tr>
+                                <td><i class="sprite-fc sprite-fc-GB"></i></td>
+                                <td class="text-left">GBP (British Pound Sterling)</td>
+                                <td class="text-left"><span class="liveConv2" data-conv="0.77"> 0.77 </span></td>
+                            </tr>
+							<tr>
+                                <td><i class="sprite-fc sprite-fc-JP"></i></td>
+                                <td class="text-left">JPY (Japanese Yen)</td>
+                                <td class="text-left"><span class="liveConv2" data-conv="116.79"> 116.79 </span></td>
+                            </tr>
+							<tr>
+                                <td><i class="sprite-fc sprite-fc-MY"></i></td>
+                                <td class="text-left">MYR (Malaysian Ringgit)</td>
+                                <td class="text-left"><span class="liveConv2" data-conv="4.52"> 4.52 </span></td>
+                            </tr>
+							<tr>
+                                <td><i class="sprite-fc sprite-fc-CA"></i></td>
+                                <td class="text-left">CAD (Canadian Dollar)</td>
+                                <td class="text-left"><span class="liveConv2" data-conv="1.34"> 1.34 </span></td>
+                            </tr>
+							<tr>
+                                <td><i class="sprite-fc sprite-fc-HK"></i></td>
+                                <td class="text-left">HKD (Hongkong Dollar)</td>
+                                <td class="text-left"><span class="liveConv2" data-conv="8.31"> 8.31 </span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -143,6 +173,12 @@
                     data: {
                         IDR: 15350.00000,
                         USD: 1.00000,
+						AUD: 1.46,
+						GBP: 0.77,
+						JPY: 116.79,
+						MYR: 116.79,
+						CAD: 1.34,
+						HKD: 8.31,
                     },
                 };
                 onload_functions.push(function () {
