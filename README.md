@@ -1,3 +1,4 @@
 # Almaftuchin-CDN
 
-Official Website: https://www.almaftuchin.com
+Website: https://www.almaftuchin.com
+Blog: https://blog.almaftuchin.com
