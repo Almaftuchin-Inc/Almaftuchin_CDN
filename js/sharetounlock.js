@@ -36,7 +36,6 @@
     $.onepress.sociallocker.buttons = [
          "facebook-like",
         ,"facebook-share"
-        ,"youtube-subscribe"
         ,"twitter-tweet"
         ,"twitter-follow"
         ,"linkedin-share" 
