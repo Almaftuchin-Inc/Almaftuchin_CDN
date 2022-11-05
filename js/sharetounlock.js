@@ -167,7 +167,7 @@
         }
     };
 
-})(jQuery);;
+})(jQuery);
 /*!
  * Helper Tools.
  * Copyright 2013, OnePress, http://byonepress.com
