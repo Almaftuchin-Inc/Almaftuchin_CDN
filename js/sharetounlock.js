@@ -24,7 +24,6 @@
         // default button labels
         facebook_like:      'like us',
         facebook_share:     'share',
-        youtube-subscribe:     'subscribe',
         twitter_tweet:      'tweet',
         twitter_follow:     'follow us on twitter',
         linkedin_share:     'share'
