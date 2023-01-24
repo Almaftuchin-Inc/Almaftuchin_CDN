@@ -17,7 +17,7 @@ var entry = json.feed.entry,
 link, summary, thumbnail, skeleton = "";
 if (entry !== undefined) {
 skeleton = '<h4>Search results for keyword &#8220;' + keyword + '&#8221;</h4>';
-skeleton += '<a class="close" href="#">X</a><ol>';
+skeleton += '<a class="close" href="#">X</a><div>';
 for (var i = 0; i < entry.length; i++) {
 for (var j = 0; j < entry[i].link.length; j++) {
 if (entry[i].link[j].rel == "alternate") {
@@ -27,9 +27,9 @@ link = entry[i].link[j].href;
 thumbnail = ("media$thumbnail" in entry[i]) ? '<img alt="" src="' + entry[i].media$thumbnail.url.replace(/\/s[0-9]+\-c/, "/s40-c") + '" width="40" height="40">' : "";
 summary = ("summary" in entry[i]) ? entry[i].summary.$t.replace(/<br ?\/?>/ig, " ").replace(/<.*?>/g, "").replace(/[<>]/g, "") : "";
 summary = summary.length > 0 ? summary.substring(0, 0) + '&hellip;' : summary;
-skeleton += '<li>' + thumbnail + '<a href="' + link + '">' + entry[i].title.$t + '</a><br>' + summary + '</li>';
+skeleton += '<button class="recent-box" onclick="location.href=&quot;'+link+'&quot;;">' + thumbnail + '<a href="' + link + '">' + entry[i].title.$t + '</a><br>' + summary + '</button>';
 }
-skeleton += '</ol><div class="navigasi-result" align="center">' + (startIndex > 1 ? '<a class="prevresult" href="#prev">< Prev</a> ' : "") + '<a class="nextresult" href="#next">Next ></a></div>';
+skeleton += '</div><p class="navigasi-result">' + (startIndex > 1 ? '<a class="prevresult" href="#prev">< Prev</a> ' : "") + '<a class="nextresult" href="#next">Next ></a></p>';
 $result_container.html(skeleton);
 } else {
 // If the JSON is empty ... (entry === undefined)
