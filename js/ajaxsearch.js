@@ -29,7 +29,7 @@ summary = ("summary" in entry[i]) ? entry[i].summary.$t.replace(/<br ?\/?>/ig, "
 summary = summary.length > 0 ? summary.substring(0, 0) + '&hellip;' : summary;
 skeleton += '<li>' + thumbnail + '<a href="' + link + '">' + entry[i].title.$t + '</a><br>' + summary + '</li>';
 }
-skeleton += '</ol><p>' + (startIndex > 1 ? '<a class="prev" href="#prev">Prev</a> ' : "") + '<a class="next" href="#next">Next</a></p>';
+skeleton += '</ol><p>' + (startIndex > 1 ? '<a class="prevresult" href="#prev">Prev</a> ' : "") + '<a class="nextresult" href="#next">Next</a></p>';
 $result_container.html(skeleton);
 } else {
 // If the JSON is empty ... (entry === undefined)
@@ -49,12 +49,12 @@ error: function() {
 		$result_container.fadeOut();
 		return false;
 	});
-    $form.on("click", ".next", function() {
+    $form.on("click", ".nextresult", function() {
         startIndex++;
         $form.trigger("submit");
         return false;
     });
-    $form.on("click", ".prev", function() {
+    $form.on("click", ".prevresult", function() {
         startIndex--;
         $form.trigger("submit");
         return false;
