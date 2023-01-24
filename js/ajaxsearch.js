@@ -27,7 +27,7 @@ link = entry[i].link[j].href;
 thumbnail = ("media$thumbnail" in entry[i]) ? '<img alt="" src="' + entry[i].media$thumbnail.url.replace(/\/s[0-9]+\-c/, "/s40-c") + '" width="40" height="40">' : "";
 summary = ("summary" in entry[i]) ? entry[i].summary.$t.replace(/<br ?\/?>/ig, " ").replace(/<.*?>/g, "").replace(/[<>]/g, "") : "";
 summary = summary.length > 0 ? summary.substring(0, 0) + '&hellip;' : summary;
-skeleton += '<button class="recent-box" onclick="location.href=&quot;'+link+'&quot;;">' + thumbnail + '<a href="' + link + '">' + entry[i].title.$t + '</a><br>' + summary + '</button>';
+skeleton += '<button class="recent-boxs" onclick="location.href=&quot;'+link+'&quot;;">' + thumbnail + '<a href="' + link + '">' + entry[i].title.$t + '</a><br>' + summary + '</button>';
 }
 skeleton += '</div><p class="navigasi-result">' + (startIndex > 1 ? '<a class="prevresult" href="#prev">< Prev</a> ' : "") + '<a class="nextresult" href="#next">Next ></a></p>';
 $result_container.html(skeleton);
