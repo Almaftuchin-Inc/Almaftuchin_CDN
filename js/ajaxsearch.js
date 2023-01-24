@@ -29,10 +29,11 @@ summary = ("summary" in entry[i]) ? entry[i].summary.$t.replace(/<br ?\/?>/ig, "
 summary = summary.length > 0 ? summary.substring(0, 0) + '&hellip;' : summary;
 skeleton += '<li>' + thumbnail + '<a href="' + link + '">' + entry[i].title.$t + '</a><br>' + summary + '</li>';
 }
-skeleton += '</ol>';
+skeleton += '</ol><p>' + (startIndex > 1 ? '<a class="prev" href="#prev">Prev</a> ' : "") + '<a class="next" href="#next">Next</a></p>';
 $result_container.html(skeleton);
 } else {
 // If the JSON is empty ... (entry === undefined)
+	
 // Show the `not found` or `no result` message
 $result_container.html('<a class="close" href="/">&times;</a><strong>No result!</strong>');
 }
