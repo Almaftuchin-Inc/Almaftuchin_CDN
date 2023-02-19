@@ -9,7 +9,7 @@
 		var keyword = $input.val();
 		$result_container.show().html('Loading...');
 		$.ajax({
-			url: '//www.almaftuchin.com/feeds/posts/summary?alt=json-in-script&q=' + keyword + '&start-index=' + (startIndex === 1 ? startIndex : ((startIndex - 1) * chunk) + 1) + '&max-results=' + chunk,
+			url: '//blog.almaftuchin.com/feeds/posts/summary?alt=json-in-script&q=' + keyword + '&start-index=' + (startIndex === 1 ? startIndex : ((startIndex - 1) * chunk) + 1) + '&max-results=' + chunk,
 			type: 'get',
 			dataType: 'jsonp',
 			success: function(json) {
