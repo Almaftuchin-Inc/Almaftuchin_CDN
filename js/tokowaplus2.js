@@ -587,7 +587,7 @@ function lightbox() {
         return false;
       }), $(this).on(shakeeta(736), function () {
         var bansari = shakeeta;
-        return alert("© " + $_config[bansari(442)][bansari(590)]), false;
+ //       return alert("© " + $_config[bansari(442)][bansari(590)]), false;
       }), $("#lightbox .lb-wrap")[shakeeta(467)](shakeeta(737));
       (chason || lienna) && $("#lightbox .lb-wrap figure")[shakeeta(518)]("<figcaption></figcaption>");
       chason && $(shakeeta(553))[shakeeta(518)](shakeeta(433) + chason + shakeeta(450));
