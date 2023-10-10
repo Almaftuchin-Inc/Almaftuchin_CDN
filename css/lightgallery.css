@@ -3,8 +3,8 @@
 * Copyright (c) 2017 Sachin N; Licensed GPLv3 */
 @font-face {
   font-family: 'lg';
-  src: url("../fonts/lg.eot?n1z373");
-  src: url("../fonts/lg.eot?#iefixn1z373") format("embedded-opentype"), url("../fonts/lg.woff?n1z373") format("woff"), url("../fonts/lg.ttf?n1z373") format("truetype"), url("../fonts/lg.svg?n1z373#lg") format("svg");
+  src: url("//cdn.almaftuchin.com/css/lg.eot?n1z373");
+  src: url("//cdn.almaftuchin.com/css/lg.eot?#iefixn1z373") format("embedded-opentype"), url("//cdn.almaftuchin.com/css/lg.woff?n1z373") format("woff"), url("//cdn.almaftuchin.com/css/lg.ttf?n1z373") format("truetype"), url("../fonts/lg.svg?n1z373#lg") format("svg");
   font-weight: normal;
   font-style: normal;
 }
