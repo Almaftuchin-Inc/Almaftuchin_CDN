@@ -1,0 +1,236 @@
+
+<html>
+  <head>
+  </head>
+  <body>
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<!-- <script src="https://cdn.almaftuchin.com/js/jquery.mask.js"></script> -->
+
+<!-- 
+<form onsubmit="return validate()" action="https://formsubmit.co/almaftuchin@gmail.com" method="POST" class="container" id="input">
+-->
+	
+<form action="" method="POST" class="container" id="input" >
+
+  <input type="hidden" name="_captcha" value="false">
+
+  
+ 
+
+  <div class="group">
+    <input type="hidden" id="wapenerima" name="wapenerima" value="628999999191">
+  </div>
+
+
+  <div class="group">
+    <label>Nama Lengkap <small class="wajib">(Wajib di Isi)</small></label>
+    <input type="text" id="namapelanggan" name="namapelanggan" placeholder="Contoh: John Doe" required/>
+  </div>
+
+  <div class="group">
+    <label>Email: <small class="wajib">(Wajib di Isi)</small></label>
+    <input type="email" id="emailpelanggan" name="emailpelanggan" placeholder="Contoh: youremail@domain.com" required/>
+  </div>
+
+  <div class="group">
+    <label>Order ID: <small class="opsional">(Opsional)</small></label>
+    <input type="text" id="nomorpesanan" name="nomorpesanan" placeholder="Contoh: 7432">
+  </div>
+
+  <div class="group">
+    <label>Jumlah Pembayaran <small class="wajib">(Wajib di Isi)</small></label>
+      <input type="number" id="hargaproduk" name="hargaproduk" placeholder="Contoh: 100214 (Hanya Nomor)" required/>
+    </div>
+  
+  
+    <div class="group">
+  <input type="hidden" id="kodeflip" name="kodeflip" value="0">
+    </div>
+  
+    <div class="group">
+  <input type="hidden" id="adminflip" name="adminflip" value="0">
+    </div>
+
+  <div class="group">
+    <label>Tanggal Pembayaran: <small class="wajib">(Wajib di Isi)</small></label>
+    <br/>
+    <br/>
+    <br/>
+      <span>
+        <select id="tanggalhari" name="day">
+          <option disabled selected value>Hari</option>
+          <option >1</option>
+          <option >2</option>
+          <option >3</option>
+          <option >4</option>
+          <option >5</option>
+          <option >6</option>
+          <option >7</option>
+          <option >8</option>
+          <option >9</option>
+          <option >10</option>
+          <option >11</option>
+          <option >12</option>
+          <option >13</option>
+          <option >14</option>
+          <option >15</option>
+          <option >16</option>
+          <option >17</option>
+          <option >18</option>
+          <option >19</option>
+          <option >20</option>
+          <option >21</option>
+          <option >22</option>
+          <option >23</option>
+          <option >24</option>
+          <option >25</option>
+          <option >26</option>
+          <option >27</option>
+          <option >28</option>
+          <option id="iffeb">29</option>
+          <option id="if30" >30</option>
+          <option id="if31">31</option>
+
+        </select>
+      </span>
+      <span>
+        <select id="tanggalbulan" name="month" onchange="TampilkanHari(this)">
+          <option disabled selected value>Bulan</option>
+          <option>January</option>
+          <option>February</option>
+          <option>March</option>
+          <option>April</option>
+          <option>May</option>
+          <option>June</option>
+          <option>July</option>
+          <option>August</option>
+          <option>September</option>
+          <option>October</option>
+          <option>November</option>
+          <option>December</option>
+        </select>
+      </span>
+      <span>
+        <input type="number" id="tanggaltahun" name="tanggaltahun" placeholder="YYYY">
+      </span>
+    </div>
+  
+    <div class="group">
+      <input type="text" id="totalbayar" name="totalbayar" placeholder="Total Bayar Rp." value="0000" readonly="readonly" disabled>
+    </div>
+
+  <div class="group" id="btn" align="center">
+	<button type="reset" class="reset">Reset</button>
+
+	<button type="submit" onClick="sendWA()" class="kirim" id="kirimkonfirmasi">Send</button>
+  </div>
+</form>
+
+
+<style>
+.wajib{color:red}
+.opsional{color:green}
+#tanggalhari {width: 100px;}
+#tanggalbulan {width: 120px;}
+#tanggaltahun {width: 120px;}
+#totalbayar{width: 100%;float: left;left: 0% !important;height: 10px;border: 0px;font-size: 10px;color: #ff0000;}
+#totalbayar:focus{border:none}
+.group {display: block;}
+label {float: left;margin-top: 2%;width: auto;}
+body{font-family: Arial, Helvetica, sans-serif;}
+form {display: flex;flex-direction: column;justify-content: center;}
+#input{width: 50%;margin: auto;}
+textarea{height: 120px;resize: none;}
+input, select, textarea{padding: 10px 10px;border-radius: 4px;transition: 0.3s;width: 90%;background-color:rgb(255, 255, 255);font-size: medium;border:1px solid #000}
+input:focus{border-radius: 24px;border:1px solid #fff}
+form #btn button{margin: auto;margin-top: 5%;padding: 10px 25px;border-radius: 14px;border: darkgreen;color: white;cursor: pointer;font-size: 1.5rem;}
+button.reset{background-color:rgb(59, 120, 156);padding-right: 100px;}
+button.kirim{background-color: rgb(21, 214, 101);padding-left: 100px;}
+
+</style>
+
+<script type="text/javascript">
+
+
+// Show Hide Tanggal
+function TampilkanHari(that) {
+    if (that.value == "February") {
+        document.getElementById("if30").style.display = "none";
+        document.getElementById("if31").style.display = "none";
+        document.getElementById("iffeb").selected = "selected";
+    } else {
+      document.getElementById("if30").style.display = "block";
+        document.getElementById("if31").style.display = "block";
+
+
+    }
+}
+
+// 	PENJUMLAHAN
+$(document).ready(function(){
+      $("#kodeflip").keyup(function(){
+        var hargaproduk  = parseInt($("#hargaproduk").val());
+        var kodeflip  = parseInt($("#kodeflip").val());
+        var totalbayar = hargaproduk + kodeflip;
+        $("#totalbayar").val(totalbayar);
+      });
+
+	  $("#hargaproduk").keyup(function(){
+        var hargaproduk  = parseInt($("#hargaproduk").val());
+        var kodeflip  = parseInt($("#kodeflip").val());
+        var totalbayar = hargaproduk + kodeflip;
+        $("#totalbayar").val(totalbayar);
+      });
+});
+
+
+/* Dengan Rupiah */
+
+// function JadiDuit() {
+	const dengan_rupiah = document.getElementById('totalbayar');
+// var dengan_rupiah = document.getElementById('totalbayar');
+    dengan_rupiah.addEventListener('mousemove', function(e)
+    {
+        dengan_rupiah.value = JadiRupiah(this.value, 'Rp. ');
+    });
+
+    /* Fungsi */
+    function JadiRupiah(angka, prefix)
+    {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split    = number_string.split(','),
+            sisa     = split[0].length % 3,
+            rupiah     = split[0].substr(0, sisa),
+            ribuan     = split[0].substr(sisa).match(/\d{3}/gi);
+            
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+        
+        rupiah = split[1] != undefined ? rupiah + '.' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? '' + rupiah : '');
+    }
+
+
+function sendWA() {
+
+	let mobileNumber = document.getElementById('wapenerima');
+	let orderid = document.getElementById('nomorpesanan');
+
+//  let mobileNumber = document.getElementById('text-input');    //Enter your mobile number here
+
+	
+
+	let url = 'https://wa.me/' + wapenerima.value + "?text=Halo+Saya+mau+verifikasi+pembayaran+di+%2AAlmaftuchin+Shop%2A%0D%0A------------------------------%0A%2ANama%2A%3A+" + namapelanggan.value + "%0D%0A%2AEmail%2A%3A+" + emailpelanggan.value + "%0D%0A%2AOrder+ID%2A%3A+" + nomorpesanan.value + "%0D%0A%2AJumlah%2A%3A+" + totalbayar.value + "%0D%0A%2ATanggal%2A%3A+" + tanggalhari.value + "%20" + tanggalbulan.value + "%20" + tanggaltahun.value + "%0D%0A------------------------------%0D%0A%0D%0A_%28Melampirkan+bukti+transfer+akan+mempercepat+verifikasi+pembayaran_";
+
+	window.open(url, '_blank').focus();
+}
+
+
+</script>
+</body>
+</html>
